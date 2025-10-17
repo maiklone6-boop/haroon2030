@@ -1,0 +1,10 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+body{
+    height: 100vw;
+    background: rgb(38, 52, 66);
+    color: white;
+}

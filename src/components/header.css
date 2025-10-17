@@ -1,0 +1,248 @@
+/* === إعداد عام (Right to Left + خطوط عربية) === */
+body {
+  direction: rtl;
+  font-family: "Tajawal", "Cairo", sans-serif;
+  background-color: #293847;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+
+/* === الترويسة === */
+.header {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0;
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* === الحاوية الرئيسية === */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  flex-direction: row-reverse; /* عكس الاتجاه للعربية */
+}
+
+/* === الشعار === */
+.logo a {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.logo a::before {
+  content: "✈️";
+  margin-left: 8px;
+  font-size: 1.4rem;
+}
+
+.logo a:hover {
+  color: #64b5f6;
+  transform: translateY(-2px);
+}
+
+/* === شريط التنقل === */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.nav-active {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #64b5f6;
+}
+
+.nav-active::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  right: 50%;
+  transform: translateX(50%);
+  width: 6px;
+  height: 6px;
+  background-color: #64b5f6;
+  border-radius: 50%;
+}
+
+/* === أزرار تسجيل الدخول / التسجيل === */
+.auth-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.login-btn,
+.register-btn,
+.logout-btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* زر تسجيل الدخول */
+.login-btn {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+.login-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+/* زر إنشاء حساب */
+.register-btn {
+  background-color: #64b5f6;
+  color: white;
+  border: 2px solid #64b5f6;
+}
+
+.register-btn:hover {
+  background-color: #42a5f5;
+  border-color: #42a5f5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(100, 181, 246, 0.3);
+}
+
+/* === قائمة المستخدم === */
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: white;
+}
+
+.user-name {
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  border-right: 3px solid #64b5f6;
+}
+
+.logout-btn {
+  background: linear-gradient(135deg, #ff6b6b, #e57373);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.4rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(229, 115, 115, 0.25);
+}
+
+.logout-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #ef5350, #e53935);
+  box-shadow: 0 6px 16px rgba(239, 83, 80, 0.4);
+}
+
+.logout-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(229, 115, 115, 0.2);
+}
+
+
+/* === استجابة للشاشات الصغيرة === */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+    height: auto;
+    flex-wrap: wrap;
+  }
+
+  .logo a {
+    font-size: 1.5rem;
+  }
+
+  .nav {
+    gap: 0.8rem;
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    padding: 10px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .auth-buttons {
+    order: 1;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .user-menu {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .user-name {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+/* === تأثيرات إضافية === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === إمكانية الوصول === */
+.nav a:focus,
+.login-btn:focus,
+.register-btn:focus,
+.logout-btn:focus {
+  outline: 2px solid #64b5f6;
+  outline-offset: 2px;
+}
+
+/* === دعم الوضع الداكن (Dark Mode) === */
+@media (prefers-color-scheme: dark) {
+  .header {
+    background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+  }
+}
